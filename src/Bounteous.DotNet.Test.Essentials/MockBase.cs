@@ -11,7 +11,7 @@ namespace Bounteous.DotNet.Test.Essentials
             => mocks = new MockRepository(MockBehavior.Strict);
 
         protected Mock<T> Create<T>(MockBehavior behavior = MockBehavior.Strict) where T : class
-            => mocks.Create<T>(MockBehavior.Strict);
+            => mocks.Create<T>(behavior);
 
         protected Mock<T> Strict<T>() where T : class
             => mocks.Create<T>(MockBehavior.Strict);
