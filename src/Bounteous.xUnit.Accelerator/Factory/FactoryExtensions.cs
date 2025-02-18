@@ -1,6 +1,6 @@
 using System;
 
-namespace Bounteous.DotNet.Test.Essentials.Factory
+namespace Bounteous.xUnit.Accelerator.Factory
 {
     public static class FactoryExtensions
     {

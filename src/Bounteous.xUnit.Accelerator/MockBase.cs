@@ -1,7 +1,7 @@
 using System;
 using Moq;
 
-namespace Bounteous.DotNet.Test.Essentials
+namespace Bounteous.xUnit.Accelerator
 {
     public abstract class MockBase : IDisposable
     {

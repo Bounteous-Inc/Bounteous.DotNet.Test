@@ -10,6 +10,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Bounteous.Core" Version="0.0.2" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
         <PackageReference Include="xunit" Version="2.9.2" />
         <PackageReference Include="xunit.runner.visualstudio" Version="3.0.0">
@@ -24,8 +25,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Bounteous.DotNet.Test.Essentials\Bounteous.DotNet.Test.Essentials.csproj" />
-      <ProjectReference Include="..\Xerris.DotNet.Test.Essentials\Xerris.DotNet.Test.Essentials.csproj" />
+      <ProjectReference Include="..\Bounteous.xUnit.Accelerator\Bounteous.xUnit.Accelerator.csproj" />
     </ItemGroup>
 
 </Project>

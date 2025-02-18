@@ -1,4 +1,4 @@
-namespace Bounteous.DotNet.Test.Essentials.Tests
+namespace Bounteous.xUnit.Accelerator.Tests
 {
     public class Request
     {
