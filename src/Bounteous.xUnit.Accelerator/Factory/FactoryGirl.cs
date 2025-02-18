@@ -3,7 +3,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading;
 
-namespace Bounteous.DotNet.Test.Essentials.Factory;
+namespace Bounteous.xUnit.Accelerator.Factory;
 
 public static class FactoryGirl
 {

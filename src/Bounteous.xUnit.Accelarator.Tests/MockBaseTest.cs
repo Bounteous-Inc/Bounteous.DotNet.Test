@@ -1,9 +1,9 @@
 using System.Threading.Tasks;
+using Bounteous.Core.Validations;
 using Moq;
-using Xerris.DotNet.Core.Validations;
 using Xunit;
 
-namespace Bounteous.DotNet.Test.Essentials.Tests
+namespace Bounteous.xUnit.Accelerator.Tests
 {
     public class MockBaseTest : MockBase
     {

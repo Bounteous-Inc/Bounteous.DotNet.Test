@@ -1,4 +1,4 @@
-name: Publish Bounteous.DotNet.Test.Essentials
+name: Bounteous.xUnit.Accelerator
 
 on:
   pull_request:
@@ -8,10 +8,10 @@ on:
 jobs:
   publish:
     if: github.event.pull_request.merged == true
-    uses: bounteous/bounteous-common-workflows/.github/workflows/build-and-publish-to-nuget.yml@main
+    uses: Bounteous-Inc/bounteous-dotnet-common-workflows/.github/workflows/build-and-publish-to-nuget.yml@main
     with:
-      csproj-path: './src/Bounteous.DotNet.Test.Essentials/Bounteous.DotNet.Test.Essentials.csproj'
-      nuget-package-name: 'bounteous.dotnet.test.essentials'
+      csproj-path: './src/Bounteous.xUnit.Accelerator/Bounteous.xUnit.Accelerator.csproj'
+      nuget-package-name: 'Bounteous.xUnit.Accelerator'
       dotnet-version: '8.0.x'
       release-path: 'net8.0'
       build-configuration: 'Release'
