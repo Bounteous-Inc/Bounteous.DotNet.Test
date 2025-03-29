@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bounteous.xUnit.Accelerator", "src\Bounteous.xUnit.Accelerator\Bounteous.xUnit.Accelerator.csproj", "{1D831200-B52C-49D8-BBB4-3453CE8D0A22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bounteous.xUnit.Accelerator.Tests", "src\Bounteous.xUnit.Accelarator.Tests\Bounteous.xUnit.Accelerator.Tests.csproj", "{E53E7186-D017-46B4-952F-1DE63D597211}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bounteous.xUnit.Accelerator.Tests", "src\Bounteous.xUnit.Accelerator.Tests\Bounteous.xUnit.Accelerator.Tests.csproj", "{E53E7186-D017-46B4-952F-1DE63D597211}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
