@@ -46,5 +46,16 @@ namespace Bounteous.xUnit.Accelerator.Tests
             var customer = await service.Object.GetCustomer(request);
             Validate.Begin().IsNotNull(customer, "customer").Check();
         }
+
+        [Fact]
+        public async Task PartialLoose()
+        {
+            var request = new Request();
+            var service = LoosePartial<Service>();
+            service.Setup(x => x.GetCustomer(request)).ReturnsAsync(new Customer());
+
+            var customer = await service.Object.GetCustomer(request);
+            Validate.Begin().IsNotNull(customer, "customer").Check();
+        }
     }
 }
