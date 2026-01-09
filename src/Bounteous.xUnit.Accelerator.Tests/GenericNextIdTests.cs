@@ -8,88 +8,46 @@ namespace Bounteous.xUnit.Accelerator.Tests
     public class GenericNextIdTests : FactoryGirlTestBase
     {
 
-        [Fact]
-        public void NextId_Int_ReturnsSequentialIds()
+        [Theory]
+        [InlineData(1, 2, 3)]  // int
+        public void NextId_Int_ReturnsSequentialIds(int expected1, int expected2, int expected3)
         {
-            var customer = new Customer();
-            
-            var id1 = customer.NextId<int>();
-            var id2 = customer.NextId<int>();
-            var id3 = customer.NextId<int>();
-            
-            Assert.Equal(1, id1);
-            Assert.Equal(2, id2);
-            Assert.Equal(3, id3);
+            FactoryTestHelpers.AssertSequentialIds(() => new Customer().NextId<int>(), expected1, expected2, expected3);
         }
 
-        [Fact]
-        public void NextId_Long_ReturnsSequentialIds()
+        [Theory]
+        [InlineData(1L, 2L, 3L)]  // long
+        public void NextId_Long_ReturnsSequentialIds(long expected1, long expected2, long expected3)
         {
-            var customer = new Customer();
-            
-            var id1 = customer.NextId<long>();
-            var id2 = customer.NextId<long>();
-            var id3 = customer.NextId<long>();
-            
-            Assert.Equal(1L, id1);
-            Assert.Equal(2L, id2);
-            Assert.Equal(3L, id3);
+            FactoryTestHelpers.AssertSequentialIds(() => new Customer().NextId<long>(), expected1, expected2, expected3);
         }
 
-        [Fact]
-        public void NextId_Short_ReturnsSequentialIds()
+        [Theory]
+        [InlineData((short)1, (short)2, (short)3)]  // short
+        public void NextId_Short_ReturnsSequentialIds(short expected1, short expected2, short expected3)
         {
-            var customer = new Customer();
-            
-            var id1 = customer.NextId<short>();
-            var id2 = customer.NextId<short>();
-            var id3 = customer.NextId<short>();
-            
-            Assert.Equal((short)1, id1);
-            Assert.Equal((short)2, id2);
-            Assert.Equal((short)3, id3);
+            FactoryTestHelpers.AssertSequentialIds(() => new Customer().NextId<short>(), expected1, expected2, expected3);
         }
 
-        [Fact]
-        public void NextId_Byte_ReturnsSequentialIds()
+        [Theory]
+        [InlineData((byte)1, (byte)2, (byte)3)]  // byte
+        public void NextId_Byte_ReturnsSequentialIds(byte expected1, byte expected2, byte expected3)
         {
-            var customer = new Customer();
-            
-            var id1 = customer.NextId<byte>();
-            var id2 = customer.NextId<byte>();
-            var id3 = customer.NextId<byte>();
-            
-            Assert.Equal((byte)1, id1);
-            Assert.Equal((byte)2, id2);
-            Assert.Equal((byte)3, id3);
+            FactoryTestHelpers.AssertSequentialIds(() => new Customer().NextId<byte>(), expected1, expected2, expected3);
         }
 
-        [Fact]
-        public void NextId_UInt_ReturnsSequentialIds()
+        [Theory]
+        [InlineData(1u, 2u, 3u)]  // uint
+        public void NextId_UInt_ReturnsSequentialIds(uint expected1, uint expected2, uint expected3)
         {
-            var customer = new Customer();
-            
-            var id1 = customer.NextId<uint>();
-            var id2 = customer.NextId<uint>();
-            var id3 = customer.NextId<uint>();
-            
-            Assert.Equal(1u, id1);
-            Assert.Equal(2u, id2);
-            Assert.Equal(3u, id3);
+            FactoryTestHelpers.AssertSequentialIds(() => new Customer().NextId<uint>(), expected1, expected2, expected3);
         }
 
-        [Fact]
-        public void NextId_ULong_ReturnsSequentialIds()
+        [Theory]
+        [InlineData(1ul, 2ul, 3ul)]  // ulong
+        public void NextId_ULong_ReturnsSequentialIds(ulong expected1, ulong expected2, ulong expected3)
         {
-            var customer = new Customer();
-            
-            var id1 = customer.NextId<ulong>();
-            var id2 = customer.NextId<ulong>();
-            var id3 = customer.NextId<ulong>();
-            
-            Assert.Equal(1ul, id1);
-            Assert.Equal(2ul, id2);
-            Assert.Equal(3ul, id3);
+            FactoryTestHelpers.AssertSequentialIds(() => new Customer().NextId<ulong>(), expected1, expected2, expected3);
         }
 
         [Fact]
@@ -107,37 +65,15 @@ namespace Bounteous.xUnit.Accelerator.Tests
         }
 
         [Fact]
-        public void NextId_PerType_CustomerAndRequest_HaveSeparateSequences()
+        public void NextId_PerType_Int_CustomerAndRequest_HaveSeparateSequences()
         {
-            var customer = new Customer();
-            var request = new Request();
-            
-            var customerId1 = customer.NextId<Customer, int>();
-            var customerId2 = customer.NextId<Customer, int>();
-            var requestId1 = request.NextId<Request, int>();
-            var requestId2 = request.NextId<Request, int>();
-            
-            Assert.Equal(1, customerId1);
-            Assert.Equal(2, customerId2);
-            Assert.Equal(1, requestId1);
-            Assert.Equal(2, requestId2);
+            FactoryTestHelpers.AssertPerTypeSequenceIsolation<Customer, Request, int>(new Customer(), new Request());
         }
 
         [Fact]
         public void NextId_PerType_Long_CustomerAndRequest_HaveSeparateSequences()
         {
-            var customer = new Customer();
-            var request = new Request();
-            
-            var customerId1 = customer.NextId<Customer, long>();
-            var customerId2 = customer.NextId<Customer, long>();
-            var requestId1 = request.NextId<Request, long>();
-            var requestId2 = request.NextId<Request, long>();
-            
-            Assert.Equal(1L, customerId1);
-            Assert.Equal(2L, customerId2);
-            Assert.Equal(1L, requestId1);
-            Assert.Equal(2L, requestId2);
+            FactoryTestHelpers.AssertPerTypeSequenceIsolation<Customer, Request, long>(new Customer(), new Request());
         }
 
         [Fact]
@@ -160,41 +96,21 @@ namespace Bounteous.xUnit.Accelerator.Tests
         public void NextGuid_ReturnsUniqueGuids()
         {
             var customer = new Customer();
-            
-            var guid1 = customer.NextGuid();
-            var guid2 = customer.NextGuid();
-            var guid3 = customer.NextGuid();
-            
-            Assert.NotEqual(Guid.Empty, guid1);
-            Assert.NotEqual(Guid.Empty, guid2);
-            Assert.NotEqual(Guid.Empty, guid3);
-            Assert.NotEqual(guid1, guid2);
-            Assert.NotEqual(guid2, guid3);
-            Assert.NotEqual(guid1, guid3);
+            FactoryTestHelpers.AssertUniqueGuids(() => customer.NextGuid());
         }
 
-        [Fact]
-        public void FactoryGirl_NextId_Int_ReturnsSequentialIds()
+        [Theory]
+        [InlineData(1, 2, 3)]  // int
+        public void FactoryGirl_NextId_Int_ReturnsSequentialIds(int expected1, int expected2, int expected3)
         {
-            var id1 = FactoryGirl.NextId<int>();
-            var id2 = FactoryGirl.NextId<int>();
-            var id3 = FactoryGirl.NextId<int>();
-            
-            Assert.Equal(1, id1);
-            Assert.Equal(2, id2);
-            Assert.Equal(3, id3);
+            FactoryTestHelpers.AssertSequentialIds(() => FactoryGirl.NextId<int>(), expected1, expected2, expected3);
         }
 
-        [Fact]
-        public void FactoryGirl_NextId_Long_ReturnsSequentialIds()
+        [Theory]
+        [InlineData(1L, 2L, 3L)]  // long
+        public void FactoryGirl_NextId_Long_ReturnsSequentialIds(long expected1, long expected2, long expected3)
         {
-            var id1 = FactoryGirl.NextId<long>();
-            var id2 = FactoryGirl.NextId<long>();
-            var id3 = FactoryGirl.NextId<long>();
-            
-            Assert.Equal(1L, id1);
-            Assert.Equal(2L, id2);
-            Assert.Equal(3L, id3);
+            FactoryTestHelpers.AssertSequentialIds(() => FactoryGirl.NextId<long>(), expected1, expected2, expected3);
         }
 
         [Fact]
@@ -214,16 +130,7 @@ namespace Bounteous.xUnit.Accelerator.Tests
         [Fact]
         public void FactoryGirl_NextGuid_ReturnsUniqueGuids()
         {
-            var guid1 = FactoryGirl.NextGuid();
-            var guid2 = FactoryGirl.NextGuid();
-            var guid3 = FactoryGirl.NextGuid();
-            
-            Assert.NotEqual(Guid.Empty, guid1);
-            Assert.NotEqual(Guid.Empty, guid2);
-            Assert.NotEqual(Guid.Empty, guid3);
-            Assert.NotEqual(guid1, guid2);
-            Assert.NotEqual(guid2, guid3);
-            Assert.NotEqual(guid1, guid3);
+            FactoryTestHelpers.AssertUniqueGuids(() => FactoryGirl.NextGuid());
         }
 
         [Fact]
