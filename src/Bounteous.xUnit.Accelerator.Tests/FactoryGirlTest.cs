@@ -5,11 +5,13 @@ using Xunit;
 
 namespace Bounteous.xUnit.Accelerator.Tests
 {
-    public class FactoryGirlTest
+    [Collection("FactoryGirl")]
+    public class FactoryGirlTest : FactoryGirlTestBase
     {
-        public FactoryGirlTest()
+        protected override void SetupCommonFactories()
         {
-            FactoryGirl.Clear();
+            // Don't set up any factories by default for these tests
+            // Each test will define its own as needed
         }
 
         [Fact]
