@@ -4,13 +4,9 @@ using Xunit;
 
 namespace Bounteous.xUnit.Accelerator.Tests
 {
-    public class FactoryExtensionsTest
+    [Collection("FactoryGirl")]
+    public class FactoryExtensionsTest : FactoryGirlTestBase
     {
-        public FactoryExtensionsTest()
-        {
-            FactoryGirl.Clear();
-            FactoryGirl.Define(() => new Customer());
-        }
 
         [Fact]
         public void NextIdReturnsSequentialIds()
