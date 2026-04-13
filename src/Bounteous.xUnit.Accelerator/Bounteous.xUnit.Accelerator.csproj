@@ -3,6 +3,10 @@
     <PropertyGroup>
         <TargetFramework>net10.0</TargetFramework>
         <Version>0.0.1</Version>
+        <PackageId>Bounteous.xUnit.Accelerator</PackageId>
+        <Authors>Bounteous</Authors>
+        <Company>Xerris Inc.</Company>
+        <LicenseExpression>BSD-3-Clause</LicenseExpression>
     </PropertyGroup>
 
     <ItemGroup>
