@@ -6,7 +6,7 @@
         <PackageId>Bounteous.xUnit.Accelerator</PackageId>
         <Authors>Bounteous</Authors>
         <Company>Xerris Inc.</Company>
-        <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
     </PropertyGroup>
 
     <ItemGroup>
