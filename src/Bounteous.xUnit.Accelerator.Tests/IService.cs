@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace Bounteous.DotNet.Test.Essentials.Tests
+namespace Bounteous.xUnit.Accelerator.Tests
 {
     public interface IService
     {

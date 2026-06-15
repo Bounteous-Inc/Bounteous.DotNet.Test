@@ -1,9 +1,9 @@
 using System.Threading.Tasks;
+using Bounteous.Core.Validations;
 using Moq;
-using Xerris.DotNet.Core.Validations;
 using Xunit;
 
-namespace Bounteous.DotNet.Test.Essentials.Tests
+namespace Bounteous.xUnit.Accelerator.Tests
 {
     public class MockBaseTest : MockBase
     {
@@ -41,6 +41,17 @@ namespace Bounteous.DotNet.Test.Essentials.Tests
         {
             var request = new Request();
             var service = StrictPartial<Service>();
+            service.Setup(x => x.GetCustomer(request)).ReturnsAsync(new Customer());
+
+            var customer = await service.Object.GetCustomer(request);
+            Validate.Begin().IsNotNull(customer, "customer").Check();
+        }
+
+        [Fact]
+        public async Task PartialLoose()
+        {
+            var request = new Request();
+            var service = LoosePartial<Service>();
             service.Setup(x => x.GetCustomer(request)).ReturnsAsync(new Customer());
 
             var customer = await service.Object.GetCustomer(request);
